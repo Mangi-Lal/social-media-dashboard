@@ -10,7 +10,6 @@ has precedence over the values in the preference. If the preference
 changed after the page was visited - and the page is not loaded - 
 the last value saved on the local storage is loaded. 
 */
-
 const darkButton = document.getElementById('dark');
 const lightButton = document.getElementById('light');
 
@@ -29,10 +28,11 @@ const colorModeFromLocalStorage = () => {
 };
 
 const colorModeFromPreferences = () => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches 
+  const mode = window.matchMedia('(prefers-color-scheme: dark)').matches 
               ? 'dark'
               : 'light' // If preference is set or does not match anything (light is default)
-};
+             return mode;
+            };
 
 const loadAndUpdateColor = () => {
   // local storage has precendence over the prefers-color-scheme
